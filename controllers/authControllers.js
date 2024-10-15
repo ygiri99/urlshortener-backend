@@ -38,7 +38,7 @@ export const register = async (req, res) => {
         await tokenPayload.save();
 
         //Creating link
-        const link = `http://localhost:5173/activate?token=${newToken}&id=${user._id}`;
+        const link = `https://urlshortener-frontapp.netlify.app/activate?token=${newToken}&id=${user._id}`;
 
 
         //Sending link to the Email
@@ -150,7 +150,7 @@ export const forgotPassword = async (req, res) => {
         await tokenPayload.save();
 
         //Creating link
-        const link = `http://localhost:5173/resetPassword?token=${newToken}&id=${user._id}`;
+        const link = `https://urlshortener-frontapp.netlify.app/resetPassword?token=${newToken}&id=${user._id}`;
 
         //Sending link to the Email
         await sendMail(user.userId, "Reset password link", { name: user.firstName, link: link });
